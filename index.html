@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CSS to XPath Converter</title>
+        <script src="https://raw.githubusercontent.com/css2xpath/css2xpath/master/index.js"></script>
+    </head>
+
+    <body>
+        <input type="text" />
+
+        <script>
+            var input = document.querySelector('input')
+            .addEventListener('change', function () {
+                var value = input.getAttribute('value');
+                console.log(css2xpath(value));
+            })
+        </script>
+    </body>
+</html>
