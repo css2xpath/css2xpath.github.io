@@ -24,6 +24,7 @@
             });
 
             function format(str, depth) {
+                s = str.trim();
                 depth = depth || 0;
 
                 return str.replace(/[\[\(\)\]]([^\(\[]*)/g, function(m, m2) {
