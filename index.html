@@ -27,10 +27,11 @@
                 var depth = 0;
 
                 return str.replace(/[\[\(\)\]]/g, function(m) {
-                    if (m === '[' || m === ']') {
-                        return '\n' + repeat('\t', (depth++)) + m;
+
+                    if (m === '[' || m === '(') {
+                        return '\n' + repeat('\t', depth++) + m;
                     } else {
-                        return '\n' + repeat('\t', (--depth)) + m;
+                        return '\n' + repeat('\t', --depth) + m;
                     }
                 })
             }
