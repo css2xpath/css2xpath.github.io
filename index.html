@@ -30,7 +30,7 @@
                     m2 = format(m2, depth);
                     if (m === '[' || m === '(') {
                         if (m2.length < 5) {
-                            return m + m2;
+                            return repeat('\t', depth++) + m + m2;
                         }
                         return m + '\n' + repeat('\t', depth++);
                     } else {
