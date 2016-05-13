@@ -9,8 +9,9 @@
         <input type="text" />
 
         <script>
-            var input = document.querySelector('input')
-            .addEventListener('change', function () {
+            var input = document.querySelector('input');
+
+            input.addEventListener('change', function () {
                 var value = input.getAttribute('value');
                 console.log(css2xpath(value));
             })
