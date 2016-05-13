@@ -24,11 +24,13 @@
             });
 
             function format(str) {
-                var depth = 0;
+                var depth = 1;
 
-                return str.replace(/[\[\(\)\]]/g, function(m) {
-
-                    if (m === '[' || m === '(') {
+                return str.replace(/[\[\(\)\]]/g, function(m, offset) {
+                    if (m === '[' || m === '(') {    
+                        if (str.charAt(offset) === ')' ||
+                            str.charAt(offset) === ']')
+                                return m;
                         return m + '\n' + repeat('\t', depth++);
                     } else {
                         return '\n' + repeat('\t', --depth) + m;
