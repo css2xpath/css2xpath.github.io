@@ -17,7 +17,7 @@
             input.addEventListener('keyup', function() {
                 clearTimeout(timeout);
                 timeout = setTimeout(function() {
-                    var value = input.getAttribute('value');
+                    var value = input.value;
                     console.log(css2xpath(value));
                     result.innerHTML = value;
                 }, 200);
