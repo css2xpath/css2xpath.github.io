@@ -18,8 +18,7 @@
                 clearTimeout(timeout);
                 timeout = setTimeout(function() {
                     var value = input.value;
-                    console.log(css2xpath(value));
-                    result.innerHTML = value;
+                    result.innerHTML = css2xpath(value);
                 }, 200);
             })
         </script>
