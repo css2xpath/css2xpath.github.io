@@ -29,7 +29,7 @@
                 return str.replace(/[\[\(\)\]]/g, function(m) {
 
                     if (m === '[' || m === '(') {
-                        return '\n' + repeat('\t', depth++) + m;
+                        return m + '\n' + repeat('\t', depth++);
                     } else {
                         return '\n' + repeat('\t', --depth) + m;
                     }
