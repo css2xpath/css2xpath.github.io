@@ -7,14 +7,20 @@
 
     <body>
         <input type="text" />
+        <div id="result"></div>
 
         <script>
             var input = document.querySelector('input'),
-                css2
+                result = document.getElementById('result'),
+                timeout;
 
-            input.addEventListener('change', function () {
-                var value = input.getAttribute('value');
-                console.log(css2xpath(value));
+            input.addEventListener('keyup', function() {
+                clearTimeout(timeout);
+                timeout = setTimeout(function() {
+                    var value = input.getAttribute('value');
+                    console.log(css2xpath(value));
+                    result.innerHTML = value;
+                }, 200);
             })
         </script>
     </body>
