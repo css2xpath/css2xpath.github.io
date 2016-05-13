@@ -7,7 +7,7 @@
 
     <body>
         <input type="text" />
-        <div id="result"></div>
+        <pre id="result"></pre>
 
         <script>
             var input = document.querySelector('input'),
@@ -17,10 +17,35 @@
             input.addEventListener('keyup', function() {
                 clearTimeout(timeout);
                 timeout = setTimeout(function() {
-                    var value = input.value;
-                    result.innerHTML = css2xpath(value);
+                    var xpath = css2xpath(input.value);
+
+                    result.innerHTML = (value);
                 }, 200);
-            })
+            });
+
+            function format(str) {
+                var depth = 0;
+
+                str.replace(/[\[\(\)\]]/g, function(m) {
+                    if (m === '[' || m === ']') {
+                        return '\n' + repeat('\t', (depth++)) + m;
+                    } else {
+                        return '\n' + repeat('\t', (--depth)) + m;
+                    }
+                })
+            }
+
+            function repeat(str, num) {
+                var result = '';
+
+                for (num |= 0; num > 0; num >>>= 1, str += str) {
+                    if (num & 1) {
+                        result += str;
+                    }
+                }
+
+                return result;
+            }
         </script>
     </body>
 </html>
