@@ -19,14 +19,14 @@
                 timeout = setTimeout(function() {
                     var xpath = css2xpath(input.value);
 
-                    result.innerHTML = (value);
+                    result.innerHTML = format(xpath);
                 }, 200);
             });
 
             function format(str) {
                 var depth = 0;
 
-                str.replace(/[\[\(\)\]]/g, function(m) {
+                return str.replace(/[\[\(\)\]]/g, function(m) {
                     if (m === '[' || m === ']') {
                         return '\n' + repeat('\t', (depth++)) + m;
                     } else {
