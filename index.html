@@ -2,14 +2,15 @@
 <html>
     <head>
         <title>CSS to XPath Converter</title>
-        <script src="https://raw.githubusercontent.com/css2xpath/css2xpath/master/css2xpath.min.js"></script>
+        <script src="https://raw.githubusercontent.com/css2xpath/css2xpath/master/index.js"></script>
     </head>
 
     <body>
         <input type="text" />
 
         <script>
-            var input = document.querySelector('input');
+            var input = document.querySelector('input'),
+                css2
 
             input.addEventListener('change', function () {
                 var value = input.getAttribute('value');
