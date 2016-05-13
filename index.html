@@ -23,14 +23,15 @@
                 }, 200);
             });
 
-            function format(str) {
-                var depth = 1;
+            function format(str, depth) {
+                depth = depth || 0;
 
-                return str.replace(/[\[\(\)\]]/g, function(m, offset) {
+                return str.replace(/[\[\(\)\]]([^\(\[]*)/g, function(m, m2) {
+                    m2 = format(m2, depth);
                     if (m === '[' || m === '(') {
-                        if (str.charAt(offset + 1) === ')' ||
-                            str.charAt(offset + 1) === ']')
-                                return m;
+                        if (m2.length < 5) {
+                            return m + m2;
+                        }
                         return m + '\n' + repeat('\t', depth++);
                     } else {
                         return '\n' + repeat('\t', --depth) + m;
