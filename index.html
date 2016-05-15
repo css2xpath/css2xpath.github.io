@@ -1,13 +1,31 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="utf-8" />
         <title>CSS to XPath Converter</title>
         <script src="https://raw.githubusercontent.com/css2xpath/css2xpath/master/index.js"></script>
+        <style>
+            div {
+                margin: auto;
+                max-width: 800px;
+            }
+            input {
+                font-size: 1.5em;
+                padding: 0.25em;
+                margin-bottom: 1em;
+                width:100%;
+            }
+            #result {
+                font-size: 1.5em;
+            }
+        </style>
     </head>
 
     <body>
-        <input type="text" />
-        <pre id="result"></pre>
+        <div>
+            <input type="text" placeholder="CSS Selector" autofocus />
+            <code id="result"></code>
+        </div>
 
         <script>
             var input = document.querySelector('input'),
@@ -19,36 +37,9 @@
                 timeout = setTimeout(function() {
                     var xpath = css2xpath(input.value);
 
-                    result.innerHTML = format(xpath);
+                    result.innerHTML = xpath;
                 }, 200);
             });
-
-            function format(str, depth) {
-                s = str.trim();
-                depth = depth || 0;
-
-                return str.replace(/([\[\(\)\]])(.{0,5}[\)\]]*)/g, function(m) {
-                    if (m.length > 1) {
-                        return m + '\n';
-                    } else if (m === '[' || m === '(') {
-                        return m + '\n' + repeat('\t', depth++);
-                    } else {
-                        return '\n' + repeat('\t', --depth) + m;
-                    }
-                })
-            }
-
-            function repeat(str, num) {
-                var result = '';
-
-                for (num |= 0; num > 0; num >>>= 1, str += str) {
-                    if (num & 1) {
-                        result += str;
-                    }
-                }
-
-                return result;
-            }
         </script>
     </body>
 </html>
