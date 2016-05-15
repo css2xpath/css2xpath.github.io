@@ -27,12 +27,10 @@
                 s = str.trim();
                 depth = depth || 0;
 
-                return str.replace(/[\[\(\)\]]([^\(\[]*)/g, function(m, m2) {
-                    m2 = format(m2, depth);
-                    if (m === '[' || m === '(') {
-                        if (m2.length < 5) {
-                            return repeat('\t', depth++) + m + m2;
-                        }
+                return str.replace(/([\[\(\)\]])(.{0,5}[\)\]]*)/g, function(m) {
+                    if (m.length > 1) {
+                        return m + '\n';
+                    } else if (m === '[' || m === '(') {
                         return m + '\n' + repeat('\t', depth++);
                     } else {
                         return '\n' + repeat('\t', --depth) + m;
