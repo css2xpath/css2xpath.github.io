@@ -431,7 +431,7 @@
                                 a:icontains("CaSe InSenSiTiVe")
                             </code>
                             <code class="xpath">
-                                .//a[contains(translate(normalize-space(), 'ABCDEFGHJIKLMNOPQRSTUVWXYZ', 'abcdefghjiklmnopqrstuvwxyz'),translate("CaSe InSenSiTiVe", 'ABCDEFGHJIKLMNOPQRSTUVWXYZ', 'abcdefghjiklmnopqrstuvwxyz'))]
+                                .//a[contains(translate(normalize-space(), 'ABC..', 'abc..'),translate("CaSe InSenSiTiVe", 'ABC..', 'abc..'))]
                             </code>
                         </div>
                     </div>
@@ -453,7 +453,7 @@
                                 a:istarts-with("CaSe InSenSiTiVe")
                             </code>
                             <code class="xpath">    
-                                .//a[starts-with(translate(normalize-space(), 'ABCDEFGHJIKLMNOPQRSTUVWXYZ', 'abcdefghjiklmnopqrstuvwxyz'),translate("CaSe InSenSiTiVe", 'ABCDEFGHJIKLMNOPQRSTUVWXYZ', 'abcdefghjiklmnopqrstuvwxyz'))]
+                                .//a[starts-with(translate(normalize-space(), 'ABC..', 'abc..'),translate("CaSe InSenSiTiVe", 'ABC..', 'abc..'))]
                             </code>
                         </div>
                     </div>
@@ -475,7 +475,7 @@
                                 a:iends-with("CaSe InSenSiTiVe")
                             </code>
                             <code class="xpath">    
-                                .//a[ends-with(translate(normalize-space(), 'ABCDEFGHJIKLMNOPQRSTUVWXYZ', 'abcdefghjiklmnopqrstuvwxyz'),translate("CaSe InSenSiTiVe", 'ABCDEFGHJIKLMNOPQRSTUVWXYZ', 'abcdefghjiklmnopqrstuvwxyz'))]
+                                .//a[ends-with(translate(normalize-space(), 'ABC..', 'abc..'),translate("CaSe InSenSiTiVe", 'ABC..', 'abc..'))]
                             </code>
                         </div>
                     </div>
