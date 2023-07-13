@@ -240,6 +240,7 @@
                 <label class="css-label" for="input">CSS</label>
                 <textarea id="input" type="text" placeholder="CSS Selector" autofocus></textarea>
                 <code id="result"></code>
+                <a href="javascript:copyResult()">Copy Result to Clipboard</a>
             </div>
             <div class="features-section">
                 <h2>Features</h2>
@@ -561,6 +562,10 @@
                 var xpath = css2xpath(balanceParens(input.value));
 
                 result.innerHTML = xpath;
+            }
+            
+            function copyResult() {
+            	navigator.clipboard.writeText(result.innerHTML);
             }
 
             function balanceParens(str) {
